@@ -1,0 +1,19 @@
+{
+  "name": "bruno",
+  "version": "1.0.0",
+  "description": "HTML tempalate",
+  "main": "index.html",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LjS",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "slick-carousel": "^1.8.1"
+  }
+}
