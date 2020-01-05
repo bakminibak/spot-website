@@ -388,6 +388,29 @@ header {
   margin-bottom: 12px;
 }
 
+#brand-logo .logo-symbol,
+#brand-logo .logo-txt {
+  fill: #272727;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+#brand-logo .logo-symbol.delay-2,
+#brand-logo .logo-txt.delay-2 {
+  -webkit-transition-delay: 3s;
+          transition-delay: 3s;
+}
+
+#brand-logo .logo-txt {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+#brand-logo:hover .logo-symbol,
+#brand-logo:hover .logo-txt {
+  fill: #00F494;
+}
+
 nav {
   font-size: 1rem;
   position: initial !important;

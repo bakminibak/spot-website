@@ -385,6 +385,29 @@ header {
   margin-bottom: 12px;  
 }
 
+#brand-logo {    
+  .logo-symbol, 
+  .logo-txt {
+    fill:#272727;    
+    transition: all 1s;
+    &.delay-2 {
+      transition-delay: 3s;
+    }
+  }
+  .logo-symbol {
+    
+  }  
+  .logo-txt {           
+    transition: all 1s;
+  }
+  &:hover {
+    .logo-symbol, 
+    .logo-txt {
+      fill:$color-green;  
+    }
+  }
+}
+
 nav {
   font-size: 1rem;
   position: initial !important;
