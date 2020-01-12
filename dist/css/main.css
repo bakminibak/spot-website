@@ -305,13 +305,14 @@ textarea {
 
 .modal.modal-fullscreen .modal-dialog {
   width: 100%;
+  max-width: 1024px;
   height: auto;
   margin: 0;
   padding: 0;
   max-width: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 2rem 2rem;
+  padding: 2rem 10vw;
 }
 
 .modal.modal-fullscreen .modal-content {

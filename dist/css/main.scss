@@ -319,6 +319,10 @@ $dark-color:#282828;
 $ani-speed: 2s;
 $ani-delay: 1s;
 
+#video-overlay {
+  iframe {
+  }
+}
 
 .modal{
   align-items: center;
@@ -335,13 +339,14 @@ $ani-delay: 1s;
 
   &.modal-fullscreen{
     .modal-dialog {
-      width: 100%;
+      width: 100%;      
+      max-width: 1024px;
       height: auto;
       margin: 0;
       padding: 0;
       max-width: none;
       box-sizing: border-box;
-      padding: 2rem 2rem;
+      padding: 2rem 10vw;
     }
     .modal-content {
       height: auto;
@@ -745,7 +750,7 @@ nav {
       box-sizing: border-box;
       border: none;
       &:hover {
-        
+
       }
       &:before {
         content: " ";
