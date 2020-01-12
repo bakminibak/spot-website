@@ -1,0 +1,212 @@
+*{
+  font-family: gotham;
+}
+
+.navbar{
+  padding: 19px 23px;
+}
+
+.nav-link{
+  font-size: 15px;
+    font-family: gotham;
+}
+
+nav .nav-item{
+  transition: border .1s ease-in-out;
+}
+
+.hero .wrapper{
+  min-height: 69vh;
+}
+
+.overlay-text h1{
+  text-transform: capitalize;
+  font-weight: 700;
+  text-align: center;
+}
+
+.h-subtext{
+  font-family: gotham book;
+  text-align: center;
+}
+
+.download-btns{
+  text-align: center;
+}
+
+.download-btns .btn img{
+  max-height: 60px;
+} 
+
+.videoWrapper{
+  z-index: 9999;
+}
+
+.button-play{
+  border: solid 6px transparent;
+  border-radius: 100px;
+  padding: 3px;
+  transition: 0.1s;
+}
+
+.button-play:hover{
+  color: #04d682;
+  border: solid 6px #00f494;
+}
+
+.button-play:active{
+  color: #00f494;
+}
+
+#welcome h1{
+  font-size: 43px!important;
+  padding: 32px 0;
+  font-weight: 400;
+  text-transform: unset;
+}
+
+#welcome{
+  padding: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+.download-btns a:hover{
+  opacity: 0.8;
+  display: block;
+}
+
+nav .button.become-member::before{
+  font-size: 1.6rem;
+  color: #282828;
+}
+
+nav .button{
+  font-size: 14px;
+    font-weight: 400;
+    padding: 12px 24px;
+}
+
+#langDropdown{
+  cursor: pointer;
+}
+
+nav .button.become-member:hover{
+  background-color: #22F39A;
+  opacity: 0.8;
+}
+
+nav .nav-btn:hover{
+  border-bottom: transparent;
+}
+
+nav ul.social-links {
+  width: 280px;
+  bottom: -77px;
+}
+
+.social-links i {
+  color: #282828;
+  font-size: 20px;
+  padding: 13px 10px;
+}
+
+ul.social-links a:hover{
+  border-bottom: 2px solid #282828;
+  opacity: 1;
+}
+
+ul.social-links li a {
+  display: block;
+  padding: 1px 0px;
+  opacity: 0.8;
+  border-bottom: solid 2px transparent;
+}
+
+nav ul.social-links{
+  padding: 0 2rem;
+}
+
+.arrow{
+  bottom: 22px;
+}
+
+#welcome .bg-wrap p{
+  font-weight: 300;
+}
+
+.partner-logos .slick-prev:before, .partner-logos .slick-next:before{
+  font-size: 49px;
+}
+
+.partner-logos .slick-active img{
+  transition: 0.5s;
+  filter: grayscale(100%);
+}
+
+.partner-logos .slick-current img{
+  transition: 0.5s;
+  max-width: 140px;
+  max-height: 140px;
+  margin-top: -14px;
+  filter: saturate(1);
+}
+
+.partner-logos .slick-list{
+  height: 100px;
+}
+
+.dropdown-item{
+  text-align: center;
+  padding: 10px 23px;
+}
+
+.dropdown-menu{
+  padding: 0;
+}
+
+.dropdown-menu .active{
+  background-color: #00f494;
+  color: #282828;
+}
+
+.dropdown-menu .active:hover{
+  background-color: #00f494!important;
+}
+
+nav .dropdown-menu .dropdown-item:hover{
+  background-color: #00f49250;
+}
+
+section .howitworks-h2{
+  font-weight: 400;
+  font-size: 52px!important;
+  text-transform: capitalize;
+  width: 26rem;
+  padding: 16px 0!important;
+  margin: 0 auto;
+  border-top: solid 7px #00F494;
+}
+
+section .howitworks-h3{
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 43px!important;
+}
+
+section .howitworks-p{
+  font-weight: 300;
+  font-size: 23px;
+}
+
+.howitworks-img{
+  width: 19rem!important; 
+}
+
+.howitworks-img-pocket{
+  width: 22rem!important; 
+}
+
+#how-it-works{
+  margin-top: 8rem;
+}

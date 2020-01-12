@@ -112,7 +112,7 @@ $dark-color:#282828;
   .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
-    color: #000;
+    color: #282828;
     padding: 0.2em 0;
   }
   
@@ -231,7 +231,7 @@ $dark-color:#282828;
     *:before,
     *:after {
       background: transparent !important;
-      color: #000 !important;
+      color: #282828 !important;
       /* Black prints faster */
       box-shadow: none !important;
       text-shadow: none !important;
@@ -385,29 +385,6 @@ header {
   margin-bottom: 12px;  
 }
 
-#brand-logo {    
-  .logo-symbol, 
-  .logo-txt {
-    fill:#272727;    
-    transition: all 1s;
-    &.delay-2 {
-      transition-delay: 3s;
-    }
-  }
-  .logo-symbol {
-    
-  }  
-  .logo-txt {           
-    transition: all 1s;
-  }
-  &:hover {
-    .logo-symbol, 
-    .logo-txt {
-      fill:$color-green;  
-    }
-  }
-}
-
 nav {
   font-size: 1rem;
   position: initial !important;
@@ -448,9 +425,9 @@ nav {
       border: $color-green 2px solid;
       padding: 0.4rem 1.5rem;
       margin: 0 0.2rem;
-      color: black;
+      color: #282828;
       cursor: pointer;
-      a {color: black; display: block;}
+      a {color: #282828; display: block;}
       &.become-member {
         display: flex;
         line-height: 1rem;
@@ -490,36 +467,6 @@ nav {
       position: relative;
       .dropdown-menu {
         min-width: initial;
-      }
-    }
-    .to-top-arrow {
-      $button-width: 50px;
-      position: absolute;
-      top: 90vh;
-      bottom: 3rem;
-      right: 3rem;
-      border-radius: 3rem;
-      width: $button-width;
-      height: $button-width;
-      line-height: $button-width;
-      font-size: 1.2rem;
-      text-align: center;
-      color: white!important;
-      padding: 0;
-      margin: 0;
-      background-color: $color-green;
-      border: rgba(255, 255, 255, 0.5) 2px solid;
-      &:hover {
-        
-        background-color: $icon-bg-grad-dark;
-        border: rgba(255, 255, 255, 0.5) 2px solid;
-      }
-      a {
-        display: block; 
-        margin-top: -3px;     
-      }
-      i {
-        color: white;
       }
     }
 }
@@ -628,7 +575,7 @@ nav {
   }
   .slick-prev::before,
   .slick-next::before {
-    color: #000;
+    color: #282828;
   }
   
   .slick-prev:before {
@@ -664,6 +611,9 @@ nav {
         padding-right: 3rem;
       }   
     }
+  }
+  .howitworks-img{
+    width: 21rem!important; 
   }
   .step {
     text-align: left;
@@ -1013,7 +963,7 @@ footer {
     border: $color-green 2px solid;
     padding: 0.2rem 2rem;
     margin: 0 0.2rem;
-    color: black;
+    color: #282828;
     cursor: pointer;    
     margin: 0;
     height: 2.5rem;    
@@ -1033,9 +983,6 @@ footer {
     -webkit-box-shadow: 0px -5px 5px 3px rgba(0,0,0,0.2);
     -moz-box-shadow: 0px -5px 5px 3px rgba(0,0,0,0.2);
     box-shadow: 0px -5px 5px 3px rgba(0,0,0,0.2);
-  }
-  .wrap {
-
   }
 }
 .social-links {
@@ -1171,6 +1118,14 @@ footer {
         flex-wrap: wrap;
         order: 1;
         padding-bottom: 2rem;
+        .img-slide {
+          img {          
+            clip: rect(0px, 100px, 100px,0px);
+            overflow-y: auto;
+          }
+        }
+        
+        
         .img-desc {
           width: 100%;
           padding: 1rem 0;
