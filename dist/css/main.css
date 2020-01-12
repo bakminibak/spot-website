@@ -264,10 +264,62 @@ textarea {
   }
 }
 
-.logo-color1 {
-  fill: red;
-  color: orange;
-  background-color: orchid;
+#brand-logo .logo-symbol,
+#brand-logo .logo-txt {
+  fill: #272727;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+#brand-logo .logo-symbol.delay-2,
+#brand-logo .logo-txt.delay-2 {
+  -webkit-transition-delay: 3s;
+          transition-delay: 3s;
+}
+
+#brand-logo .logo-txt {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+#brand-logo:hover .logo-symbol,
+#brand-logo:hover .logo-txt {
+  fill: #00F494;
+}
+
+.modal {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal #closeModal i {
+  color: white;
+  font-size: 2rem;
+  margin-right: -2rem;
+}
+
+.modal #closeModal i:hover {
+  opacity: 0.8;
+}
+
+.modal.modal-fullscreen .modal-dialog {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 2rem 2rem;
+}
+
+.modal.modal-fullscreen .modal-content {
+  height: auto;
+  min-height: 100%;
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
 }
 
 .arrow {
@@ -832,7 +884,6 @@ nav ul#lng .dropdown-menu {
 #testimonials {
   background-image: url("../img/testimonials_bg.svg");
   background-position: center center;
-  background-size: cover;
   background-repeat: no-repeat;
   padding: 10rem 5rem;
   color: #fff;
@@ -850,7 +901,7 @@ nav ul#lng .dropdown-menu {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  min-height: 820px;
+  min-height: 1220px;
 }
 
 #testimonials h2 {
@@ -862,7 +913,7 @@ nav ul#lng .dropdown-menu {
   margin: 0 auto;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  min-height: 450px;
+  min-height: 250px;
   max-width: 920px;
   margin: 0 auto;
   position: relative;
@@ -871,7 +922,8 @@ nav ul#lng .dropdown-menu {
 
 #testimonials .testimonial-slider .slick-prev,
 #testimonials .testimonial-slider .slick-next {
-  margin-top: -8rem;
+  margin-top: -90px;
+  /* */
 }
 
 #testimonials .testimonial-slider .slick-prev:before {
@@ -1010,10 +1062,20 @@ nav ul#lng .dropdown-menu {
 .download-btns .btn {
   padding: 0;
   margin: 0;
+  position: relative;
+  max-height: 180px;
+  height: 60px;
+  opacity: 0.85;
 }
 
 .download-btns .btn img {
-  max-height: 40px;
+  width: auto;
+  height: 100%;
+}
+
+.download-btns .btn:hover {
+  opacity: 1;
+  border: 2px solid rgba(255, 255, 255, 0);
 }
 
 section.cta-download {
@@ -1254,6 +1316,11 @@ footer .bottom-part {
   opacity: 1;
 }
 
+#app-features .row-wrap ul li i {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
 #app-features .row-wrap ul li i::before {
   display: block;
   font-size: 1.6rem;
@@ -1271,11 +1338,97 @@ footer .bottom-part {
   opacity: 1;
 }
 
+#app-features .row-wrap ul li:hover i::before {
+  -webkit-transition: all;
+  transition: all;
+  background: linear-gradient(135deg, #00F494 0%, #00C879 100%);
+  color: white;
+}
+
 /* Bootstrap Overides */
 /* Media Queries */
+@media (max-width: 1200px) {
+  #app-features #featureSlider {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  #app-features #featureSlider .center {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    padding-bottom: 2rem;
+  }
+  #app-features #featureSlider .center .img-slide {
+    min-height: 50vh;
+    max-height: 55vh;
+    overflow: hidden;
+  }
+  #app-features #featureSlider .center .img-desc {
+    width: 100%;
+    padding: 1rem 0;
+    display: block;
+    -webkit-box-shadow: 0px -5px 12px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px -5px 12px -5px rgba(0, 0, 0, 0.2);
+    padding-left: -3rem;
+    background-color: white;
+    z-index: 101;
+  }
+  #app-features #featureSlider .left,
+  #app-features #featureSlider .right {
+    -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
+    margin: 0.2rem !important;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  #app-features #featureSlider .left ul,
+  #app-features #featureSlider .right ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #app-features #featureSlider .left ul li,
+  #app-features #featureSlider .right ul li {
+    margin: 0.5rem 0.2rem;
+  }
+  #app-features #featureSlider .left ul li span,
+  #app-features #featureSlider .right ul li span {
+    display: none;
+  }
+  #app-features #featureSlider .left ul li i,
+  #app-features #featureSlider .right ul li i {
+    display: block;
+  }
+}
+
 @media (max-width: 768px) {
+  .modal.modal-fullscreen .modal-dialog {
+    width: 100%;
+    height: 100%;
+    padding: 2rem 1rem;
+  }
+  .modal.modal-fullscreen .modal-content {
+    background-color: transparent;
+  }
   #how-it-works .step {
-    padding: 1rem 1rem;
+    padding: 5rem 1rem;
   }
   #how-it-works .step .step-text {
     text-align: center !important;
@@ -1304,14 +1457,18 @@ footer .bottom-part {
             order: 1;
     padding-bottom: 2rem;
   }
-  #app-features #featureSlider .center .img-slide img {
-    clip: rect(0px, 100px, 100px, 0px);
-    overflow-y: auto;
+  #app-features #featureSlider .center .img-slide {
+    min-height: 50vh;
+    max-height: 55vh;
+    overflow: hidden;
   }
   #app-features #featureSlider .center .img-desc {
     width: 100%;
     padding: 1rem 0;
     display: block;
+    -webkit-box-shadow: 0px -5px 12px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px -5px 12px -5px rgba(0, 0, 0, 0.2);
+    padding-left: -3rem;
   }
   #app-features #featureSlider .left,
   #app-features #featureSlider .right {
