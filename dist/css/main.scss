@@ -17,6 +17,24 @@ $icon-bg-grad-light: #00F494;
 $icon-bg-grad-dark: #00C879;
 $dark-color:#282828;
 
+$gradients: () !default;
+$gradients: map-merge((
+    chill: linear-gradient(135deg, #09e485 0%,#0291e3 100%),
+    warm: linear-gradient(135deg, #F2CD48 0%,#FD803F 100%),
+    hot: linear-gradient(135deg, #F9445A 0%,#FD803F 100%),
+    cold: linear-gradient(135deg, #8019C6 0%,#2F93CC 100%),
+    spot: linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%)
+), $gradients);
+
+@mixin iconGradient() {  
+  transition: all;
+  background: linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+}
+
+
+
+
+
    html, body {
     color: #282828;
     font-size: 1em;
@@ -112,7 +130,7 @@ $dark-color:#282828;
   .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
-    color: #000;
+    color: #282828;
     padding: 0.2em 0;
   }
   
@@ -231,7 +249,7 @@ $dark-color:#282828;
     *:before,
     *:after {
       background: transparent !important;
-      color: #000 !important;
+      color: #282828 !important;
       /* Black prints faster */
       box-shadow: none !important;
       text-shadow: none !important;
@@ -286,14 +304,71 @@ $dark-color:#282828;
   }
 
 
-.logo-color1 {
-  fill: red;
-  color: orange;
-  background-color: orchid;
-}
+  #brand-logo {    
+    .logo-symbol, 
+    .logo-txt {
+      fill:#272727;    
+      transition: all 1s;
+      &.delay-2 {
+        transition-delay: 3s;
+      }
+    }
+    .logo-symbol {
+      
+    }  
+    .logo-txt {           
+      transition: all 1s;
+    }
+    &:hover {
+      .logo-symbol, 
+      .logo-txt {
+        fill:$color-green;  
+      }
+    }
+  }
+  
 
 $ani-speed: 2s;
 $ani-delay: 1s;
+
+#video-overlay {
+  iframe {
+  }
+}
+
+.modal{
+  align-items: center;
+  #closeModal {
+    i {
+      color: white;
+      font-size: 2rem;
+      margin-right: -2rem;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &.modal-fullscreen{
+    .modal-dialog {
+      width: 100%;      
+      max-width: 1024px;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      max-width: none;
+      box-sizing: border-box;
+      padding: 2rem 10vw;
+    }
+    .modal-content {
+      height: auto;
+      min-height: 100%;
+      border-radius: 0;
+      border: none;
+      background-color: transparent;
+    }
+  }
+}
 
 .arrow {
     opacity: 1;
@@ -365,6 +440,10 @@ h1 {
    font-size: 1.5rem;
  }
 
+ section .howitworks-h2{
+  max-width: 26rem;
+}
+
 /* Layout */
 .svg-logo {
   display: block;
@@ -385,29 +464,6 @@ header {
   margin-bottom: 12px;  
 }
 
-#brand-logo {    
-  .logo-symbol, 
-  .logo-txt {
-    fill:#272727;    
-    transition: all 1s;
-    &.delay-2 {
-      transition-delay: 3s;
-    }
-  }
-  .logo-symbol {
-    
-  }  
-  .logo-txt {           
-    transition: all 1s;
-  }
-  &:hover {
-    .logo-symbol, 
-    .logo-txt {
-      fill:$color-green;  
-    }
-  }
-}
-
 nav {
   font-size: 1rem;
   position: initial !important;
@@ -422,8 +478,8 @@ nav {
       display: flex;
       border-bottom: 6px #fff solid;      
       transition: border .5s ease-in-out;
-      text-align: center;
-      
+      text-align: center;      
+      border-bottom: 6px white solid;
       &.selected,
       &.active {        
         border-bottom: 6px $color-green solid;
@@ -433,6 +489,8 @@ nav {
       }
       &:hover {        
         border-bottom: 6px rgb(240, 240, 240) solid;
+      }
+      &.nav-btn {        
       }
     }
     .dropdown-menu {
@@ -448,9 +506,9 @@ nav {
       border: $color-green 2px solid;
       padding: 0.4rem 1.5rem;
       margin: 0 0.2rem;
-      color: black;
+      color: #282828;
       cursor: pointer;
-      a {color: black; display: block;}
+      a {color: #282828; display: block;}
       &.become-member {
         display: flex;
         line-height: 1rem;
@@ -490,36 +548,6 @@ nav {
       position: relative;
       .dropdown-menu {
         min-width: initial;
-      }
-    }
-    .to-top-arrow {
-      $button-width: 50px;
-      position: absolute;
-      top: 90vh;
-      bottom: 3rem;
-      right: 3rem;
-      border-radius: 3rem;
-      width: $button-width;
-      height: $button-width;
-      line-height: $button-width;
-      font-size: 1.2rem;
-      text-align: center;
-      color: white!important;
-      padding: 0;
-      margin: 0;
-      background-color: $color-green;
-      border: rgba(255, 255, 255, 0.5) 2px solid;
-      &:hover {
-        
-        background-color: $icon-bg-grad-dark;
-        border: rgba(255, 255, 255, 0.5) 2px solid;
-      }
-      a {
-        display: block; 
-        margin-top: -3px;     
-      }
-      i {
-        color: white;
       }
     }
 }
@@ -572,7 +600,11 @@ nav {
           color: $color-green;
           display: flex;
           align-items: end;
-          left: -4rem;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin-top: -3rem;
+          margin-left: -3.5rem;
           cursor: pointer;
           i {
             &:hover {
@@ -628,7 +660,7 @@ nav {
   }
   .slick-prev::before,
   .slick-next::before {
-    color: #000;
+    color: #282828;
   }
   
   .slick-prev:before {
@@ -664,6 +696,9 @@ nav {
         padding-right: 3rem;
       }   
     }
+  }
+  .howitworks-img{
+    width: 21rem!important; 
   }
   .step {
     text-align: left;
@@ -729,6 +764,8 @@ nav {
     text-align: center;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 0;
+    padding: 0;
     .card {
       padding: 1rem;   
       margin: 1rem; 
@@ -736,10 +773,14 @@ nav {
       flex-basis: 250px;
       box-sizing: border-box;
       border: none;
-      
+      transition: all 1s;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 0rem 3rem 0rem 3rem;
+        box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.2);
+      }
       &:before {
         content: " ";
-        background: url("../img/icon-1.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
         background-repeat: no-repeat;
         background-position: center;
         border-radius: 125px;
@@ -752,31 +793,31 @@ nav {
 
       &.save-time::before {
         content: " ";
-        background: url("../img/icon-1.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+        background: url("../img/icon-1.svg"), map-get($gradients, spot);
         background-repeat: no-repeat;
         background-position: center;
       }
       &.knows-you-need::before {
         content: " ";
-        background: url("../img/icon-2.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+        background: url("../img/icon-2.svg"), map-get($gradients, spot);
         background-repeat: no-repeat;
         background-position: center;
       }
       &.save-money::before {
         content: " ";
-        background: url("../img/icon-3.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+        background: url("../img/icon-3.svg"), map-get($gradients, spot);
         background-repeat: no-repeat;
         background-position: center;
       }
       &.never-bothers::before {
         content: " ";
-        background: url("../img/icon-4.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+        background: url("../img/icon-4.svg"), map-get($gradients, spot);
         background-repeat: no-repeat;
         background-position: center;
       }
       &.simple-use::before {
         content: " ";
-        background: url("../img/icon-5.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+        background: url("../img/icon-5.svg"), map-get($gradients, spot);
         background-repeat: no-repeat;
         background-position: center;
       }
@@ -806,7 +847,6 @@ nav {
 #testimonials {
   background-image: url("../img/testimonials_bg.svg");   
   background-position: center center;
-  background-size: cover;
   background-repeat: no-repeat;
   padding: 10rem 5rem;
   color: #fff;
@@ -816,7 +856,7 @@ nav {
   align-content: center;
   justify-content: center;
   text-align: center;
-  min-height: 820px;
+  min-height: 1220px;
 
   h2 {
     padding-top: 5rem;
@@ -825,14 +865,14 @@ nav {
   .testimonial-slider {
     margin: 0 auto;
     flex-wrap: nowrap;      
-    min-height: 450px;
+    min-height: 250px;
     max-width: 920px;
     margin: 0 auto;      
     position: relative;
     width: auto;
     .slick-prev,
     .slick-next {
-      margin-top: -8rem;
+     margin-top:-90px;  /* */
     }
     .slick-prev:before {
       font-family: "Font Awesome 5 Free";
@@ -940,10 +980,22 @@ nav {
   }
 }
 .download-btns {
+  $buttonHeight: 60px;
   .btn {
     padding: 0;
     margin: 0;
-    img {max-height: 40px;}
+    position: relative;    
+    max-height: 180px;
+    height: $buttonHeight;
+    opacity: 0.85;
+    img {
+      width: auto;
+      height: 100%;
+    }
+    &:hover {
+      opacity: 1;
+      border: 2px solid rgba(255, 255, 255, 0);
+    }
   }
 }
 section.cta-download {
@@ -1013,7 +1065,7 @@ footer {
     border: $color-green 2px solid;
     padding: 0.2rem 2rem;
     margin: 0 0.2rem;
-    color: black;
+    color: #282828;
     cursor: pointer;    
     margin: 0;
     height: 2.5rem;    
@@ -1033,9 +1085,6 @@ footer {
     -webkit-box-shadow: 0px -5px 5px 3px rgba(0,0,0,0.2);
     -moz-box-shadow: 0px -5px 5px 3px rgba(0,0,0,0.2);
     box-shadow: 0px -5px 5px 3px rgba(0,0,0,0.2);
-  }
-  .wrap {
-
   }
 }
 .social-links {
@@ -1065,8 +1114,7 @@ footer {
 
 #app-features {
   margin-bottom: 5rem;
-  #featureSlider {
-    
+  #featureSlider {    
     .img-desc { display: none};
     img {
       display: none;
@@ -1124,11 +1172,14 @@ footer {
         &.passed {
           opacity: 1;
         }
+        i {
+          transition: all 1s;
+        }
         i::before {    
           display: block;      
           font-size: 1.6rem;
           border: 4px $color-green solid;
-          border-radius: 10rem;
+          border-radius: 10rem;;
           padding:0;
           margin: 0 1.5rem;
           text-align: center;
@@ -1137,7 +1188,11 @@ footer {
           width: 60px;
         }
         &:hover {
-          opacity:1;
+          opacity:1;      
+          i::before {
+            @include iconGradient();
+            color: white;
+          }           
         }
       }
     }
@@ -1149,10 +1204,75 @@ footer {
 
 
 /* Media Queries */
+@media (max-width: 1200px) {
+  #app-features {
+    #featureSlider {
+      flex-direction: column;
+      width: 100%;
+      .center {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        order: 1;
+        padding-bottom: 2rem;
+        .img-slide {
+          min-height: 50vh;
+          max-height: 55vh;          
+          overflow: hidden;
+          img {          
+
+          }          
+        }
+        .img-desc {
+          width: 100%;
+          padding: 1rem 0;
+          display: block;          
+          box-shadow: 0px -5px 12px -5px rgba(0,0,0,0.2);
+          padding-left: -3rem;
+          background-color: white;
+          z-index: 101;
+        }
+      }
+      .left, 
+      .right {
+        justify-content: center !important;
+        margin: 0.2rem !important;
+        order: 2;
+         ul {
+           display: flex;
+           flex-direction: row;
+          li {        
+            margin: 0.5rem 0.2rem;
+            span {
+               display: none;
+             }   
+             i {
+               display: block;
+             }
+           }           
+         }
+        }        
+      }      
+    }
+}
 @media (max-width: 768px) {
+  .modal{
+  
+    &.modal-fullscreen{
+      .modal-dialog {
+        width: 100%;
+        height: 100%;
+        padding: 2rem 1rem;
+      }
+  
+      .modal-content {
+        background-color: transparent;
+      }
+    }
+  }
   #how-it-works {
     .step {
-      padding: 1rem 1rem;
+      padding: 5rem 1rem;
       .step-text {
         text-align: center!important;
         p {
@@ -1171,10 +1291,20 @@ footer {
         flex-wrap: wrap;
         order: 1;
         padding-bottom: 2rem;
+        .img-slide {
+          min-height: 50vh;
+          max-height: 55vh;          
+          overflow:hidden;
+          img {          
+
+          }          
+        }
         .img-desc {
           width: 100%;
           padding: 1rem 0;
-          display: block;
+          display: block;          
+          box-shadow: 0px -5px 12px -5px rgba(0,0,0,0.2);
+          padding-left: -3rem;
         }
       }
       .left, 
