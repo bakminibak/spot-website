@@ -463,6 +463,7 @@ nav .nav-item {
   -webkit-transition: border .5s ease-in-out;
   transition: border .5s ease-in-out;
   text-align: center;
+  border-bottom: 6px white solid;
 }
 
 nav .nav-item.selected, nav .nav-item.active {
@@ -617,7 +618,11 @@ nav ul#lng .dropdown-menu {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
-  left: -4rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -3rem;
+  margin-left: -3.5rem;
   cursor: pointer;
 }
 
@@ -813,11 +818,19 @@ nav ul#lng .dropdown-menu {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: none;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+#why-use-it .services-grid .card:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0rem 3rem 0rem 3rem;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.2);
+          box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.2);
 }
 
 #why-use-it .services-grid .card:before {
   content: " ";
-  background: url("../img/icon-1.svg"), linear-gradient(135deg, #00F494 0%, #00C879 100%);
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 125px;

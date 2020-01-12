@@ -97,7 +97,7 @@ nav .button.become-member:hover{
 }
 
 nav .nav-btn:hover{
-  border-bottom: transparent;
+  border-bottom: 6px transparent solid;  
 }
 
 nav ul.social-links {
@@ -182,8 +182,8 @@ section .howitworks-h2{
   font-weight: 400;
   font-size: 52px!important;
   text-transform: capitalize;
-  width: 26rem;
-  padding: 16px 0!important;
+  max-width: 26rem;
+  padding: 16px 3rem!important;
   margin: 0 auto;
   border-top: solid 7px #00F494;
 }

@@ -17,10 +17,22 @@ $icon-bg-grad-light: #00F494;
 $icon-bg-grad-dark: #00C879;
 $dark-color:#282828;
 
+$gradients: () !default;
+$gradients: map-merge((
+    chill: linear-gradient(135deg, #09e485 0%,#0291e3 100%),
+    warm: linear-gradient(135deg, #F2CD48 0%,#FD803F 100%),
+    hot: linear-gradient(135deg, #F9445A 0%,#FD803F 100%),
+    cold: linear-gradient(135deg, #8019C6 0%,#2F93CC 100%),
+    spot: linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%)
+), $gradients);
+
 @mixin iconGradient() {  
   transition: all;
   background: linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
 }
+
+
+
 
 
    html, body {
@@ -462,8 +474,8 @@ nav {
       display: flex;
       border-bottom: 6px #fff solid;      
       transition: border .5s ease-in-out;
-      text-align: center;
-      
+      text-align: center;      
+      border-bottom: 6px white solid;
       &.selected,
       &.active {        
         border-bottom: 6px $color-green solid;
@@ -473,6 +485,8 @@ nav {
       }
       &:hover {        
         border-bottom: 6px rgb(240, 240, 240) solid;
+      }
+      &.nav-btn {        
       }
     }
     .dropdown-menu {
@@ -582,7 +596,11 @@ nav {
           color: $color-green;
           display: flex;
           align-items: end;
-          left: -4rem;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin-top: -3rem;
+          margin-left: -3.5rem;
           cursor: pointer;
           i {
             &:hover {
@@ -749,12 +767,14 @@ nav {
       flex-basis: 250px;
       box-sizing: border-box;
       border: none;
+      transition: all 1s;
       &:hover {
-
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 0rem 3rem 0rem 3rem;
+        box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.2);
       }
       &:before {
         content: " ";
-        background: url("../img/icon-1.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
         background-repeat: no-repeat;
         background-position: center;
         border-radius: 125px;
@@ -767,31 +787,31 @@ nav {
 
       &.save-time::before {
         content: " ";
-        background: url("../img/icon-1.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+        background: url("../img/icon-1.svg"), map-get($gradients, spot);
         background-repeat: no-repeat;
         background-position: center;
       }
       &.knows-you-need::before {
         content: " ";
-        background: url("../img/icon-2.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+        background: url("../img/icon-2.svg"), map-get($gradients, spot);
         background-repeat: no-repeat;
         background-position: center;
       }
       &.save-money::before {
         content: " ";
-        background: url("../img/icon-3.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+        background: url("../img/icon-3.svg"), map-get($gradients, spot);
         background-repeat: no-repeat;
         background-position: center;
       }
       &.never-bothers::before {
         content: " ";
-        background: url("../img/icon-4.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+        background: url("../img/icon-4.svg"), map-get($gradients, spot);
         background-repeat: no-repeat;
         background-position: center;
       }
       &.simple-use::before {
         content: " ";
-        background: url("../img/icon-5.svg"), linear-gradient(135deg, $icon-bg-grad-light 0%, $icon-bg-grad-dark 100%);
+        background: url("../img/icon-5.svg"), map-get($gradients, spot);
         background-repeat: no-repeat;
         background-position: center;
       }
