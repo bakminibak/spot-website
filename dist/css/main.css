@@ -411,6 +411,10 @@ p {
   font-size: 1.5rem;
 }
 
+section .howitworks-h2 {
+  max-width: 26rem;
+}
+
 /* Layout */
 .svg-logo {
   display: block;
@@ -807,6 +811,8 @@ nav ul#lng .dropdown-menu {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 #why-use-it .services-grid .card {
