@@ -724,12 +724,18 @@ nav ul#lng .dropdown-menu {
       border-left: 1px solid #282828;
       border-right: none;        
       */
+  padding-right: 10vw;
+  padding-left: 0;
   text-align: left;
 }
 
 #how-it-works .step:nth-of-type(odd) .step-text p {
   padding-left: 0rem;
   padding-right: 3rem;
+}
+
+#how-it-works .step:nth-of-type(even) {
+  padding-right: 10vw;
 }
 
 #how-it-works .howitworks-img {
@@ -756,6 +762,8 @@ nav ul#lng .dropdown-menu {
 
 #how-it-works .step .step-text {
   padding: 2rem;
+  padding-left: 15vw;
+  padding-right: 0;
   /*
       border-right: 1px solid #282828;
       border-left: none;
@@ -831,8 +839,14 @@ nav ul#lng .dropdown-menu {
 #why-use-it .services-grid .card:hover {
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 0rem 3rem 0rem 3rem;
-  -webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.2);
-          box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.2);
+  -webkit-box-shadow: 0px 1px 15px 0px rgba(50, 50, 50, 0.2);
+          box-shadow: 0px 1px 15px 0px rgba(50, 50, 50, 0.2);
+}
+
+#why-use-it .services-grid .card:hover:before {
+  content: " ";
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.5);
+          box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.5);
 }
 
 #why-use-it .services-grid .card:before {
@@ -845,6 +859,8 @@ nav ul#lng .dropdown-menu {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5rem;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 #why-use-it .services-grid .card.save-time::before {
@@ -1448,13 +1464,16 @@ footer .bottom-part {
     background-color: transparent;
   }
   #how-it-works .step {
-    padding: 5rem 1rem;
+    padding: 5rem 0.5rem !important;
   }
   #how-it-works .step .step-text {
     text-align: center !important;
   }
   #how-it-works .step .step-text p {
     padding-left: 0;
+  }
+  #how-it-works:nth-of-type(2n) {
+    padding-right: 0;
   }
   #app-features #featureSlider {
     -webkit-box-orient: vertical;
@@ -1521,6 +1540,37 @@ footer .bottom-part {
   #app-features #featureSlider .left ul li i,
   #app-features #featureSlider .right ul li i {
     display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  #welcome .bg-wrap p {
+    padding: 1rem;
+  }
+  #how-it-works .step {
+    padding: 5rem 0.5rem;
+  }
+  #how-it-works .step .step-text {
+    text-align: center !important;
+    padding: 0.5rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    margin: 0.5rem !important;
+  }
+  #how-it-works .step .step-text p {
+    padding: 0 !important;
+  }
+  #how-it-works .step:nth-of-type(2n+1) .step-text {
+    padding: 1rem !important;
+  }
+  #testimonials {
+    padding: 5rem 2rem;
+  }
+  #app-features ul li {
+    margin: 0;
+  }
+  #app-features ul li i::before {
+    margin: 0 0.5rem !important;
   }
 }
 /*# sourceMappingURL=main.css.map */

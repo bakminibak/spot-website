@@ -81,6 +81,7 @@ $(function() {
                 slidesToScroll: 1
               }
             }
+            
         ]
     });
 
